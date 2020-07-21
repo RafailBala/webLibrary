@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text=${title} />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/addBook"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Добавить книгу </font></font></a>
+        <a class="p-2 text-dark" href="/addInst"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Добавить экземпляр книги</font></font></a>
+        <a class="p-2 text-dark" href="/addDep"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Добавить отдел</font></font></a>
+        <a class="p-2 text-dark" href="/library/addAut"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Добавить автора</font></font></a>
+    </nav>
+</div>
+
+<div class="container mt-5 mb-5">
+    <hi>Добавление автора</hi>
+    <form th:action="@{/addAut}" method="post" >
+        <input type="text" name="FIO" placeholder="Введите ФИО автора:" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить автора</button>
+    </form>
+</div>
+<div th:insert="blocks/ending :: ending"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text=${title} />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Областная библиотека</font></font></h1>
+            <p class="lead text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ниже представлены биографии авторов, которые являются наиболее популярными среди наших читателей.</font></font></p>
+            <p>
+                <a href="/library/authors" class="btn btn-primary my-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Все писатели</font></font></a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="card">
+                <img src="https://24smi.org/public/media/resize/800x-/2018/3/5/01_Ku9WBsY.jpg" alt="headphones3" class="card-img-top">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5> Чингиз Торекулович Айтматов</h5>
+                    </div>
+                    <p class="card-text">Чинги́з Тореку́лович Айтма́тов — киргизский и русский писатель; дипломат. Народный писатель Киргизской ССР, Герой Киргизской Республики, академик АН Киргизской ССР, Герой Социалистического Труда; лауреат Ленинской и трёх Государственных премий СССР. </p>
+                    <a href="" class="btn btn-outline-secondary">Читать подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:insert="blocks/ending :: ending"></div>
+</body>
+</html>

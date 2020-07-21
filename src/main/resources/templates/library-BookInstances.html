@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text=${title} />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/library"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Книги</font></font></a>
+        <a class="p-2 text-dark" href="/library/bookInstances"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Экземпляры книг</font></font></a>
+        <a class="p-2 text-dark" href="/library/authors"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Авторы </font></font></a>
+        <a class="p-2 text-dark" href="/library/departments"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Отделы</font></font></a>
+    </nav>
+</div>
+<div class="container mt-5">
+    <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Экземпляры книг</font></font></h1>
+    <div th:each="el : ${bookInstances}" class="alert alert-info mt-2">
+        <h3 th:text="'Инвентарный номер: '+ ${el.id}"/>
+        <div th:each="ele : ${el.id_Book}">
+        <p th:text="'Номер книги: ' + ${ele.id}"/>
+        </div>
+        <div th:each="ele : ${el.id_Department}">
+            <p th:text="'Код отдела:' + ${ele.id}"/>
+        </div>
+        <div th:each="ele : ${el.user}">
+            <p class="lead text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Пользователь: <a th:text="${ele.username}"/></font></font></p>
+        </div>
+        <a th:href="'/library/bookInstance_'+${el.id}" class="btn btn-warning">Дополнительно</a>
+    </div>
+</div>
+<div th:insert="blocks/ending :: ending"></div>
+</body>
+</html>
